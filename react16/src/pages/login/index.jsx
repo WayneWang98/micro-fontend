@@ -9,6 +9,7 @@ const Login = () => {
 
   useEffect(() => {
     const main = getMain()
+    if (!main) return
     main.appInfo.header.changeHeader(false)
     main.appInfo.nav.changeNav(false)
   }, [])

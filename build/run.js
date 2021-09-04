@@ -1,3 +1,5 @@
+/* 该文件用来快速启动所有前端项目 */
+
 const childProcess = require('child_process')
 const path = require('path')
 
@@ -11,7 +13,10 @@ const filePath = {
 // cd 子应用的目录 npm start 启动项目
 function runChild () {
   Object.values(filePath).forEach(item => {
-    childProcess.spawn(`cd ${item} && npm start`, { stdio: "inherit", shell: true })
+    childProcess.spawn(`cd ${item} && npm start`, {
+      stdio: "inherit", // 显示在终端上
+      shell: true // 是否为shell脚本
+    })
   })
 }
 runChild()
