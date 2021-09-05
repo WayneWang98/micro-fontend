@@ -1,12 +1,11 @@
 
-
 // 子应用信息
 export const subNavList = [
   {
-    name: 'react15',
-    activeRule: '/react15',
-    container: '#micro-container', // 挂载容器
-    entry: '//localhost:9002'
+    name: 'react15', // 唯一标识
+    activeRule: '/react15', // 激活路由
+    container: '#micro-container', // 子应用的挂载容器
+    entry: '//localhost:9002' // 子应用的入口
   },
   {
     name: 'react16',
