@@ -1,4 +1,5 @@
 const path = require('path');
+// const { name } = require('./package')
 
 const packageName = 'vue3'
 
