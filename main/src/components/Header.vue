@@ -82,7 +82,7 @@ export default {
   &-position{
     width: 18px;
     height: 18px;
-  }
+  } 
   &-text{
     margin: 0 6px;
   }

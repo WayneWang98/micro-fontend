@@ -49,8 +49,8 @@ import { useRouter, useRoute } from 'vue-router'
 export default {
   name: 'MainNav',
   setup() {
-    const router = useRouter()
-    const route = useRoute()
+    const router = useRouter() // 得到router实例
+    const route = useRoute() // 得到一个route对象
 
     watch(route, (val) => {
       for (let i = 0; i < NAV_LIST.length; i++) {

@@ -1,7 +1,4 @@
-// name
-// app
-// activeWhen
-// customProps
+
 import { loading } from '../store'
 
 function createScript(url) {
@@ -40,6 +37,7 @@ async function loadApp(urls, name, csslist) {
   return window[name];
 }
 
+// 子应用信息
 export const subNavList = [
   {
     name: 'react15',
