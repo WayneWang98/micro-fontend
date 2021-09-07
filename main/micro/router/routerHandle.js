@@ -1,3 +1,7 @@
+import { isTurnChild } from '../utils'
+
 export const turnApp = () => {
-  console.log('路由切换了')
+  if (isTurnChild()) {
+    console.log('路由切换了')
+  }
 }
