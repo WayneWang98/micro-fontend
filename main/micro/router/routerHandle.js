@@ -1,7 +1,10 @@
 import { isTurnChild } from '../utils'
+import { lifeCycle } from '../lifeCycle'
 
 export const turnApp = () => {
   if (isTurnChild()) {
-    console.log('路由切换了')
+    // 微前端的生命周期执行
+    lifeCycle()
+    // console.log('路由切换了')
   }
 }
