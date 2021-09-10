@@ -28,9 +28,9 @@ export const beforeLoad = async (app) => {
   // 再执行子应用的生命周期
   app && app.beforeLoad && app.beforeLoad()
 
-  const subAPP = await loadHtml(app) // 获取子应用的内容
-  subApp && subAPP.beforeLoad && subAPP.beforeLoad()
-  return subAPP
+  const subApp = await loadHtml(app) // 获取子应用的内容
+  subApp && subApp.beforeLoad && subApp.beforeLoad()
+  return subApp
 }
 
 export const mounted = async (app) => {

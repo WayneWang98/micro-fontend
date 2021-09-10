@@ -27,8 +27,13 @@ const filterApp = (key, value) => {
 
 // 子应用是否做了切换
 export const isTurnChild = () => {
+  const { pathname } = window.location
+  let prefix = pathname.match(/(\/\w+)/)
+  if (prefix) { // 正确处理activeRule
+    prefix = prefix[0];
+  }
   window.__ORIGIN_APP__ = window.__CURRENT_SUB_APP__ // 上一个子应用
-  if (window.__CURRENT_SUB_APP__ === window.location.pathname) return false
+  if (window.__CURRENT_SUB_APP__ === prefix) return false
   const currentApp = window.location.pathname.match(/(\/\w+)/)
   if (!currentApp) return
   window.__CURRENT_SUB_APP__ = currentApp[0]

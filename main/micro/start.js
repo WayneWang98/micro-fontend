@@ -23,13 +23,12 @@ export const start = () => {
 
   // 有子应用的内容，查找到符合当前路由的子应用
   const app = currentApp()
-  console.log('app', app)
 
   if (app) {
     const { pathname, hash } = window.location
     const url = pathname + hash
+    window.__CURRENT_SUB_APP__ = app.activeRule
     window.history.pushState('', '', url)
   }
-
-  window.__CURRENT_SUB_APP__ = app.activeRule
+  
 }
