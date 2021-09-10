@@ -3,6 +3,7 @@
 */
 
 import { performScriptForEval } from './performScript'
+import { SnapShotSandbox } from './snapShotSandbox'
 
 const isCheckLifeCycle = (lifecycle) => {
   return lifecycle
@@ -12,12 +13,16 @@ const isCheckLifeCycle = (lifecycle) => {
 }
 
 export const sandBox = (app, script) => {
+  const proxy = new SnapShotSandbox()
+  if (!app.proxy) {
+    app.proxy = proxy
+  }
+
   // 1.设置环境变量
   window.__MICRO_WEB__ = true
   // 2.运行js文件
-  const lifecycle = performScriptForEval(script, app.name)
+  const lifecycle = performScriptForEval(script, app.name, app.proxy.proxy)
 
-  console.log(lifecycle)
   // 生命周期，挂载到app上
   if (isCheckLifeCycle(lifecycle)) {
     app.bootstrap = lifecycle.bootstrap

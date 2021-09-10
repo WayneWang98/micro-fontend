@@ -13,8 +13,11 @@ export const lifeCycle = async () => {
     return
   }
 
-  if (prevApp && prevApp.destroyed) {
+  if (prevApp && prevApp.unmount) {
     // 销毁上一个子应用
+    if (prevApp.proxy) { // 销毁子应用沙箱
+      prevApp.proxy.inactive()
+    }
     await destroyed(prevApp)
   }
   const app = await beforeLoad(nextApp) // 在beforeLoad执行完成之后，获取到新的app
