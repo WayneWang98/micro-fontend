@@ -11,6 +11,7 @@ const filePath = {
   main: path.join(__dirname, '../main'),
   service: path.join(__dirname, '../service')
 }
+
 // cd 子应用的目录 npm start 启动项目
 function runChild () {
   Object.values(filePath).forEach(item => {
