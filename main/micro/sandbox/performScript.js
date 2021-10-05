@@ -3,21 +3,25 @@
 */
 
 // new Functin 执行
-export const performScriptForFunction = (script, appName, global) => {  
+export const performScriptForFunction = (script, appName, global) => {
+  window.proxy = global
   const scriptText = `
-    ${script}
-    return window['${appName}']
+    return ((window) => {
+      ${script}
+      return window['${appName}']
+    })(window.proxy)
   `
-  return new Function(scriptText).call(global, global) // 通过这种方式执行js时，需要指定执行的环境
+  return new Function(scriptText)()
 }
 
 // eval 执行
 export const performScriptForEval = (script, appName, global) => {
+  window.proxy = global
   const scriptText = `
-    () => {
+    ((window) => {
       ${script}
       return window['${appName}']
-    }
+    })(window.proxy)
   `
-  return eval(scriptText).call(global, global)
+  return eval(scriptText)
 }

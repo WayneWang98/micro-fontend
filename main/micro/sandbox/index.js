@@ -3,7 +3,8 @@
 */
 
 import { performScriptForEval } from './performScript'
-import { SnapShotSandbox } from './snapShotSandbox'
+// import { SnapShotSandbox } from './snapShotSandbox'
+import { ProxySandbox } from './proxySandbox'
 
 const isCheckLifeCycle = (lifecycle) => {
   return lifecycle
@@ -13,7 +14,7 @@ const isCheckLifeCycle = (lifecycle) => {
 }
 
 export const sandBox = (app, script) => {
-  const proxy = new SnapShotSandbox()
+  const proxy = new ProxySandbox()
   if (!app.proxy) {
     app.proxy = proxy
   }
