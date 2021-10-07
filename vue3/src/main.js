@@ -20,6 +20,7 @@ export const bootstrap = () => {
 }
 
 export const mount = () => {
+  window.custom.emit('test', 111)
   render()
   console.log('mount')
 }

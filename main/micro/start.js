@@ -2,6 +2,14 @@ import { setList, getList } from './const/subApps'
 import { currentApp } from './utils'
 import { rewriteRouter } from './router/rewriteRouter'
 import { setMainLifeCycle } from './const/mainLifeCycle'
+import { Custom } from './customevent/index'
+
+const custom = new Custom()
+custom.on('test', (data) => {
+  console.log('data', data)
+})
+
+window.custom = custom // 将自定义事件注册到全局
 
 // 实现路由拦截
 rewriteRouter()

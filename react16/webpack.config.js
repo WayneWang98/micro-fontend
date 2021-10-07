@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.(cs|scs)s$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] // 实现样式隔离
       },
 
     ]
