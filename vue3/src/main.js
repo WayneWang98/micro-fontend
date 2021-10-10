@@ -20,6 +20,12 @@ export const bootstrap = () => {
 }
 
 export const mount = () => {
+  const storeData = window.store.getStore()
+  window.store.update({
+    ...storeData,
+    a: 11
+  })
+
   // vue3 vue2 先有监听，后有触发
   window.custom.on('test1', (data) => {
     console.log('vue3 data :', data)
