@@ -23,6 +23,10 @@ export const bootstrap = () => {
 }
 
 export const mount = () => {
+  window.custom.on('test2', (data) => {
+    console.log('vue2 data:', data)
+  })
+  window.custom.emit('test1', 111)
   render()
   console.log('渲染成功')
 }

@@ -20,7 +20,13 @@ export const bootstrap = () => {
 }
 
 export const mount = () => {
-  window.custom.emit('test', 111)
+  // vue3 vue2 先有监听，后有触发
+  window.custom.on('test1', (data) => {
+    console.log('vue3 data :', data)
+    window.custom.emit('test2', 222)
+  })
+  // window.custom.emit('test', 111)
+  
   render()
   console.log('mount')
 }
