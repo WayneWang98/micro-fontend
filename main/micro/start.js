@@ -3,6 +3,7 @@ import { currentApp } from './utils'
 import { rewriteRouter } from './router/rewriteRouter'
 import { setMainLifeCycle } from './const/mainLifeCycle'
 import { Custom } from './customevent/index'
+import { prefetch} from './loader/prefetch'
 
 const custom = new Custom()
 custom.on('test', (data) => {
@@ -39,4 +40,6 @@ export const start = () => {
     window.history.pushState('', '', url)
   }
   
+  // 预加载 - 加载接下来所有子应用，但是不显示
+  prefetch()
 }
